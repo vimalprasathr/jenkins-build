@@ -34,7 +34,7 @@ stages {
     stage('Deploy to PROD') {
         when {
             branch 'production'
-            environment name: 'DEPLOY_TO', value: 'production'
+            //environment name: 'DEPLOY_TO', value: 'production'
         }
         steps {
                         script {
