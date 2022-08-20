@@ -11,7 +11,7 @@ stages {
         steps {
                         script {
                      if (ENV_NAME == 'main') {
-                        
+                     echo "Running your service with environemnt ${ENV_NAME} now"   
                     } else if (ENV_NAME == 'Production') {
                         
                     }                           
