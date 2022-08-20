@@ -1,7 +1,8 @@
 pipeline {
 agent any
     environment {
-        ENV_NAME = "${env.BRANCH_NAME}"
+        ENV_NAME = "main"
+        
     }
 stages {
     
