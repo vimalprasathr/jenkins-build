@@ -6,7 +6,7 @@ stages {
     stage('Deploy to stag') {
         when {
             branch 'main'
-            environment name: 'DEPLOY_TO', value: 'stag'
+            environment name: 'DEPLOY_TO', value: 'main'
         }
         steps {
                         script {
