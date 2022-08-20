@@ -10,10 +10,10 @@ stages {
             
         steps {
                         script {
-                     if (ENVIRONMENT_NAME == 'development') {
-                        ENV_NAME = 'main'
-                    } else if (ENVIRONMENT_NAME == 'release') {
-                        ENV_NAME = 'Production'
+                     if (ENV_NAME == 'main') {
+                        
+                    } else if (ENV_NAME == 'Production') {
+                        
                     }                           
                             sshPublisher(
                                 continueOnError: false, failOnError: true,
