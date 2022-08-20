@@ -1,0 +1,62 @@
+pipeline {
+agent any
+stages {
+    
+    
+    stage('Deploy to stag') {
+        when {
+            branch 'main'
+            environment name: 'DEPLOY_TO', value: 'stag'
+        }
+        steps {
+                        script {
+                            sshPublisher(
+                                continueOnError: false, failOnError: true,
+                                publishers: [
+                                    sshPublisherDesc(
+                                        configName: "testvm",
+                                        verbose: true,
+                                        transfers: [
+                                            sshTransfer(
+                                                remoteDirectory: "",
+                                                
+                                                execCommand: "cd /var/ && ls -l"
+                                                
+
+                                            )
+                                        ])
+                                ])
+                        }
+                    
+                }
+    }
+
+    stage('Deploy to PROD') {
+        when {
+            branch 'production'
+            environment name: 'DEPLOY_TO', value: 'production'
+        }
+        steps {
+                        script {
+                            sshPublisher(
+                                continueOnError: false, failOnError: true,
+                                publishers: [
+                                    sshPublisherDesc(
+                                        configName: "testvm",
+                                        verbose: true,
+                                        transfers: [
+                                            sshTransfer(
+                                                remoteDirectory: "",
+                                                
+                                                execCommand: "cd /var/ && ls -l"
+                                                
+
+                                            )
+                                        ])
+                                ])
+                        }
+                    
+                }
+    }
+  }
+}
