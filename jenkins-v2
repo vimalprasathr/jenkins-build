@@ -1,9 +1,5 @@
 pipeline {
 agent any
-environment{
-		branch1="${BRANCH}"
-        branch2="${BRANCH}"
-	}
 
 stages {
     
@@ -11,9 +7,8 @@ stages {
     stage('Deploy to stag') {
     
     when {
-                expression { 
-					branch1 == "main" 
-				}
+				branch == "main" 
+			
             }
             
         steps {
