@@ -2,14 +2,8 @@ pipeline {
 agent any
 
 stages {
-    
-    
+      
     stage('Deploy to stag') {
-    
-    when {
-				branch == "main" 
-			
-            }
             
         steps {
                      script {                          
