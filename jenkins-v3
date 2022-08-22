@@ -5,13 +5,13 @@ pipeline {
   parameters { string(name: 'STAGE', defaultValue: 'staging', description: 'the deployment state (staging, qa, prod)') }
   environment {
     CI = 'true'
-    STAGE = 'staging'
+    STAGE = 'main'
     PREFIX = '/tmp/.npm'
   }
 
   stages {
      when {
-        branch 'staging'
+        branch 'main'
       }
     stage('Build') {
       steps {
