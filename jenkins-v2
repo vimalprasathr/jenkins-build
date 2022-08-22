@@ -1,20 +1,12 @@
 pipeline {
 agent any
-    environment {
-        ENV_NAME = "${env.BRANCH_NAME}"
-    }
+
 stages {
-    
-    
+      
     stage('Deploy to stag') {
             
         steps {
-                        script {
-                     if (ENV_NAME == 'main') {
-                     echo "Running your service with environemnt ${ENV_NAME} now"   
-                    } else if (ENV_NAME == 'Production') {
-                        
-                    }                           
+                     script {                          
                             sshPublisher(
                                 continueOnError: false, failOnError: true,
                                 publishers: [
