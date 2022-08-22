@@ -13,7 +13,7 @@ pipeline {
      when {
         branch 'main'
       }
-    stage('Build') {
+    stage('Staging Deployment') {
       steps {
                         script {
                             sshPublisher(
