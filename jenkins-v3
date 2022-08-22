@@ -20,12 +20,12 @@ pipeline {
                                 continueOnError: false, failOnError: true,
                                 publishers: [
                                     sshPublisherDesc(
-                                        configName: "natures_vault_dev",
+                                        configName: "testvm",
                                         verbose: true,
                                         transfers: [
                                             sshTransfer(
                                                 remoteDirectory: "",
-                                                execCommand: "cd /var/www/nv_app/natures-vault-user && ls -l"
+                                                execCommand: "cd /home/ubuntu/stag/jenkins-build && git pull && ls -l"
                                                 //execCommand: "cd /var/www/nv_app/natures-vault-user && git pull && npm i && npm run build && sudo rm -rf /var/www/nv_app/tokensale_app/* && cp -r /var/www/nv_app/natures-vault-user/dist/* /var/www/nv_app/tokensale_app/ && cp /var/www/nv_app/natures-vault-user/.htaccess /var/www/nv_app/tokensale_app/"
 
                                             )
@@ -50,12 +50,12 @@ pipeline {
                                 continueOnError: false, failOnError: true,
                                 publishers: [
                                     sshPublisherDesc(
-                                        configName: "natures_vault_dev",
+                                        configName: "testvm",
                                         verbose: true,
                                         transfers: [
                                             sshTransfer(
                                                 remoteDirectory: "",
-                                                execCommand: "cd /var/www/nv_app/natures-vault-user && ls -l"
+                                                execCommand: "cd /var/ && ls -l"
                                                 //execCommand: "cd /var/www/nv_app/natures-vault-user && git pull && npm i && npm run build && sudo rm -rf /var/www/nv_app/tokensale_app/* && cp -r /var/www/nv_app/natures-vault-user/dist/* /var/www/nv_app/tokensale_app/ && cp /var/www/nv_app/natures-vault-user/.htaccess /var/www/nv_app/tokensale_app/"
 
                                             )
