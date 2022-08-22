@@ -5,15 +5,16 @@ pipeline {
   parameters { string(name: 'STAGE', defaultValue: 'staging', description: 'the deployment state (staging, qa, prod)') }
   environment {
     CI = 'true'
-    STAGE = 'main'
+    STAGE = 'staging'
     PREFIX = '/tmp/.npm'
   }
 
   stages {
-     when {
+
+    stage('Staging Deployment') {
+           when {
         branch 'main'
       }
-    stage('Build') {
       steps {
                         script {
                             sshPublisher(
